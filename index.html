@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menu Indicador Hover</title>
+    <link rel="stylesheet" href="style.css">
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+</head>
+<body>
+    <div class="navigation">
+        <ul>
+
+            <li class="list active" data-color="#f53b57">
+                <a href="#">
+                    <span class="icon"><ion-icon name="home-outline"></ion-icon></span>
+                    <span class="title">Home</span>
+                </a>
+            </li>
+
+            <li class="list" data-color="#f53b57">
+                <a href="#">
+                    <span class="icon"><ion-icon name="storefront-outline"></ion-icon></span>
+                    <span class="title">Store</span>
+                </a>
+            </li>
+
+            <li class="list" data-color="#f53b57">
+                <a href="#">
+                    <span class="icon"><ion-icon name="cart-outline"></ion-icon></span>
+                    <span class="title">Carrito</span>
+                </a>
+            </li>
+
+            <li class="list" data-color="#f53b57">
+                <a href="#">
+                    <span class="icon"><ion-icon name="search-outline"></ion-icon></span>
+                    <span class="title">Search</span>
+                </a>
+            </li>
+
+            <li class="list" data-color="#f53b57">
+                <a href="#">
+                    <span class="icon"><ion-icon name="person-outline"></ion-icon></span>
+                    <span class="title">Perfil</span>
+                </a>
+            </li>
+
+            <div class="indicator"></div>
+
+        </ul>
+    </div>
+
+    <script>
+        let list = document.querySelectorAll('.list');
+        for (let i=0; i<list.length; i++){
+            list[i].onmouseover = function(){
+                let j = 0;
+                while (j < list.length){
+                    list[j++].className = 'list';
+                }
+                list[i].className = 'list active';
+            }
+        }
+
+        list.forEach(elements => {
+            elements.addEventListener('mouseenter', function(event){
+                let bg = document.querySelector('body');
+                let color = event.target.getAttribute('data-color');
+                bg.style.backgroundColor = color;
+            })
+        })
+
+    </script>
+
+</body>
+</html>
